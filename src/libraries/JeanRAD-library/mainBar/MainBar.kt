@@ -1,9 +1,5 @@
-package services.graphicService.components.mainBar
 
-import services.graphicService.defaultCursor
-import services.graphicService.semiDarkGray3
-import services.graphicService.semiDarkGrayBlue
-import services.graphicService.setProperties
+import libraries.`JeanRAD-library`.*
 import java.awt.Image
 import java.awt.event.MouseEvent
 import java.awt.event.MouseListener
@@ -20,6 +16,7 @@ class MainBar(screenWidth: Int, jFrame: JFrame, move: Boolean = true): JPanel(),
     private val jFrame: JFrame = jFrame
 
     private val lLogo = JLabel()
+    private val lTitle = JLabel()
 
     private val btExit = JButton()
 
@@ -27,7 +24,7 @@ class MainBar(screenWidth: Int, jFrame: JFrame, move: Boolean = true): JPanel(),
     private var y0 = 0
 
     init {
-        mainPanel.setProperties(0, 0, screenWidth, 27, semiDarkGrayBlue, null)
+        mainPanel.setProperties(0, 0, screenWidth, 27, darkGray, null)
         if(move)
             mainPanel.addMouseMotionListener(this)
         add(mainPanel)
@@ -37,6 +34,7 @@ class MainBar(screenWidth: Int, jFrame: JFrame, move: Boolean = true): JPanel(),
         mainPanel.add(btExit)
 
         mainPanel.add(lLogo)
+        mainPanel.add(lTitle)
 
         setProperties(0, 0, screenWidth, 29, semiDarkGray3, null)
     }
@@ -80,5 +78,9 @@ class MainBar(screenWidth: Int, jFrame: JFrame, move: Boolean = true): JPanel(),
             x0 = e.x
             y0 = e.y
         }
+    }
+
+    fun setTitle(str: String) {
+        lTitle.setProperties(600, 0, 570, 28, str, semiDarkGray, fontTitleMini)
     }
 }
