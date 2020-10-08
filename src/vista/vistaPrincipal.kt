@@ -6,9 +6,9 @@ import javax.swing.*
 
 class vistaPrincipal: JFrame() {
 
-    private val screenWidth = 1366
-    private val screenHeight = 768
-    private val mainBar = MainBar(screenWidth, this, false)
+    private val screenWidth = 1300
+    private val screenHeight = 700
+    private val mainBar = MainBar(screenWidth, this)
     private val btCalcular = JButton()
 
     init {
@@ -18,10 +18,10 @@ class vistaPrincipal: JFrame() {
 
         //aside
         val aside = JPanel()
-        aside.setProperties(0, 28, 330, 512, semiDarkGrayBlue, semiDarkGray2Border)
+        aside.setProperties(-2, 27, 300, 461, semiDarkGrayBlue, semiDarkGray2Border)
         add(aside)
 
-        btCalcular.setProperties(70, 400, 170, 32, "Calcular")
+        btCalcular.setProperties(70, 360, 170, 32, "Calcular")
         aside.add(btCalcular)
 
         val label1 = JLabel()
@@ -34,16 +34,15 @@ class vistaPrincipal: JFrame() {
 
         //footer
         val footer = JPanel()
-        footer.setProperties(0, 539, screenWidth - 4, 224, semiDarkGrayBlue, semiDarkGray2Border)
+        footer.setProperties(-2, 486, screenWidth + 2, 224, semiDarkGrayBlue, semiDarkGray2Border)
         add(footer)
 
         //body
         val body = JPanel()
-        body.setProperties(350, 48,  990, 470, semiDarkGrayBlue, semiDarkGray2Border)
+        body.setProperties(330, 53,  940, 400, semiDarkGrayBlue, semiDarkGray2Border)
         add(body)
 
         setProperties(screenWidth, screenHeight, darkGray)
-        extendedState = MAXIMIZED_BOTH;
     }
 
 }
