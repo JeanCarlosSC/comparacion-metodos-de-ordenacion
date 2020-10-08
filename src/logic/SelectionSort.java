@@ -17,6 +17,7 @@ public class SelectionSort implements Metodo {
 
     }
 
+    @Override
     public void initSort(int N){
         int[] a = new int[N];
 
