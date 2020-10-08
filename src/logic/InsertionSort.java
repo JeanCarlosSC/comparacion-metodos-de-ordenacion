@@ -25,6 +25,7 @@ public class InsertionSort implements Metodo {
             a[i] = N-i;
         }
 
+        contador = 3;
         int j = 0;
         for (int i = 1; i < N; i++){ //(9j - 9)N + 9N + 2
             int aux = a[i]; // 2oe
