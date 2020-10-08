@@ -6,7 +6,7 @@ import java.awt.event.MouseListener
 import javax.swing.*
 import javax.swing.border.Border
 
-fun JPanel.setProperties(x: Int, y: Int, width: Int, height: Int, color: Color?, layoutManager: LayoutManager? = null, border: Border? = null) {
+fun JPanel.setProperties(x: Int, y: Int, width: Int, height: Int, color: Color?, border: Border? = null, layoutManager: LayoutManager? = null) {
     this.setBounds(x, y, width, height)
     this.background = color
     this.border = border
