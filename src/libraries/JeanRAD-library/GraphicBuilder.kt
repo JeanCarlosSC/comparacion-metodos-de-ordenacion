@@ -12,6 +12,7 @@ fun JFrame.setProperties(width: Int = 1280, height: Int = 720, background: Color
                          layoutManager: LayoutManager? = null) {
     this.setSize(width, height)
     this.setLocationRelativeTo(relativeLocation)
+    this.defaultCloseOperation = JFrame.EXIT_ON_CLOSE
     this.contentPane.background = background
     this.isUndecorated = undecorated
     this.rootPane.border = border

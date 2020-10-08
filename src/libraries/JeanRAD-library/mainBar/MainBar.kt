@@ -11,12 +11,12 @@ import java.awt.event.MouseMotionListener
 import javax.swing.*
 import kotlin.system.exitProcess
 
-class MainBar(screenWidth: Int, jFrame: JFrame): JPanel(), MouseListener, MouseMotionListener {
+class MainBar(screenWidth: Int, jFrame: JFrame, move: Boolean = true): JPanel(), MouseListener, MouseMotionListener {
     private val mainPanel = JPanel()
 
     private var iLogo = ImageIcon()
-    private val iBtExitOn = ImageIcon("src/services/graphicService/components/mainBar/btExitOn.png")
-    private val iBtExitOff = ImageIcon("src/services/graphicService/components/mainBar/btExitOff.png")
+    private val iBtExitOn = ImageIcon("src/libraries/JeanRAD-library/mainBar/resources/btExitOn.png")
+    private val iBtExitOff = ImageIcon("src/libraries/JeanRAD-library/mainBar/resources/btExitOff.png")
     private val jFrame: JFrame = jFrame
 
     private val lLogo = JLabel()
@@ -28,7 +28,8 @@ class MainBar(screenWidth: Int, jFrame: JFrame): JPanel(), MouseListener, MouseM
 
     init {
         mainPanel.setProperties(0, 0, screenWidth, 27, semiDarkGrayBlue, null)
-        mainPanel.addMouseMotionListener(this)
+        if(move)
+            mainPanel.addMouseMotionListener(this)
         add(mainPanel)
 
         btExit.setProperties(screenWidth - 48, 0, iBtExitOff, defaultCursor)
