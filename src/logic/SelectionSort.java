@@ -23,8 +23,31 @@ public class SelectionSort implements Metodo {
         for(int i = 0; i < N; i++){
             a[i] = N-i;
         }
-    }
 
+        contador = 1;
+        for(int i = 0; i < N-1; i++){
+            contador += 6;
+            int minimo = i;
+            for(int j = i+1; j < N; j++){ // 2OE
+                contador += 5;
+                if(a[j] < a[minimo]){ // 3OE
+                    minimo = j; // 1 OE
+                    contador += 1;
+                }
+            }
+            contador += 1;
+            contador += 1;
+            if(i != minimo){
+                contador += 7;
+                int temp = a[i];
+                a[i] = a[minimo];
+                a[minimo] = temp;
+            }
+        }
+        contador += 2;
+
+        formula = 6*((N*N) - (((N-1)*N)/(2)) - N ) + 9*(N-1) + 3;
+    }
 
     @Override
     public int calcularOEFormula() {

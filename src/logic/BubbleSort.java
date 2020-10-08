@@ -24,6 +24,7 @@ public class BubbleSort implements Metodo {
             a[i] = N-i;
         }
 
+        contador = 3;
         for(int i = 0; i < N-1; i++){
             contador += 6;
             for(int j = i+1; j < N; j++){
