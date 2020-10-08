@@ -13,7 +13,7 @@ class MainBar(screenWidth: Int, jFrame: JFrame, move: Boolean = true): JPanel(),
     private var iLogo = ImageIcon()
     private val iBtExitOn = ImageIcon("src/libraries/JeanRAD-library/mainBar/resources/btExitOn.png")
     private val iBtExitOff = ImageIcon("src/libraries/JeanRAD-library/mainBar/resources/btExitOff.png")
-    private val jFrame: JFrame = jFrame
+    private val jFrame = jFrame
 
     private val lLogo = JLabel()
     private val lTitle = JLabel()
@@ -81,6 +81,6 @@ class MainBar(screenWidth: Int, jFrame: JFrame, move: Boolean = true): JPanel(),
     }
 
     fun setTitle(str: String) {
-        lTitle.setProperties(600, 0, 570, 28, str, semiDarkGray, fontTitleMini)
+        lTitle.setProperties(600, 0, 570, 28, str, gray, fontTitleMini)
     }
 }

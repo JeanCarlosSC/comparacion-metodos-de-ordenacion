@@ -115,16 +115,16 @@ fun JButton.setProperties( x: Int,y: Int, width: Int, height: Int, cursor: Curso
     this.isContentAreaFilled = isSolid
 }
 
-fun JTextArea.setProperties(x: Int, y: Int, width: Int, height: Int, text: String? = "", foreground: Color? = black, font: Font?,
-                             editable: Boolean, border: Border? = null) {
+fun JTextArea.setProperties(x: Int, y: Int, width: Int, height: Int, editable: Boolean = true, lineWrap: Boolean = true, text: String? = "", foreground: Color? = darkWhite,
+                            background: Color? = darkGray, font: Font? = fontText, border: Border? = semiDarkGray2Border) {
     this.setBounds(x, y, width, height)
     this.text = text
     this.isEditable = editable
     this.foreground = foreground
     this.font = font
-    this.background = transparent
+    this.background = background
     this.caretColor = foreground
     this.border = border
-    this.wrapStyleWord = true
-    this.lineWrap = true
+    this.wrapStyleWord = lineWrap
+    this.lineWrap = lineWrap
 }
