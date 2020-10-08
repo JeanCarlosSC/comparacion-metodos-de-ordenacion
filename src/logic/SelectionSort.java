@@ -26,23 +26,23 @@ public class SelectionSort implements Metodo {
         }
 
         contador = 3;
-        for(int i = 0; i < N-1; i++){
+        for(int i = 0; i < N-1; i++){ // 11 OE
             contador += 11;
-            int minimo = i;
-            for(int j = i+1; j < N; j++){ // 2OE
+            int minimo = i;// 1 OE
+            for(int j = i+1; j < N; j++){ // 2 OE
 
-                if(a[j] < a[minimo]){ // 3OE
+                if(a[j] < a[minimo]){ // 3 OE
                     minimo = j; // 1 OE
                     contador += 6;
                 }
             }
-            if(i != minimo){
-                int temp = a[i];
-                a[i] = a[minimo];
-                a[minimo] = temp;
+            if(i != minimo){ // 1 OE
+                int temp = a[i]; // 2 OE
+                a[i] = a[minimo]; // 3 OE
+                a[minimo] = temp; // 2 OE
             }
         }
-        formula = 6*((N*N) - (((N-1)*N)/(2)) - N ) + 9*(N-1) + 3;
+        formula = 6*((N*N) - (((N-1)*N)/(2)) - N ) + (11*(N-1)) + 3;
     }
 
     @Override

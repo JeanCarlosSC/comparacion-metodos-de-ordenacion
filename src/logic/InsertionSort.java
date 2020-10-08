@@ -27,17 +27,19 @@ public class InsertionSort implements Metodo {
 
         contador = 3;
         int j = 0;
-        for (int i = 1; i < N; i++){ //(9j - 9)N + 9N + 2
+        for (int i = 1; i < N; i++){
             int aux = a[i]; // 2oe
             j = i - 1; // 2oe
-            while ((j >= 0) && (aux < a[j])){ //4 oe 9(j-1)
+            contador += 9;
+            while ((j >= 0) && (aux < a[j])){ //4 oe
                 a[j + 1] = a[j]; //4 oe
                 j--; // 1 oe
+                contador += 9;
             }
             a[j + 1] = aux;//3oe
         }
 
-        formula = 0;
+        formula = (9)*(N+2+(((N*N)+(3*N))/2)) + (9*(N))+(2);
     }
 
     @Override

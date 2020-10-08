@@ -1,15 +1,15 @@
 package vista
 
 import javax.swing.JFrame
-import
+//import
 
 class vistaPrincipal: JFrame() {
 
     val screenWidth = 1366
     val screenHeight = 768
 
-    init {
+    /*init {
         setProperties(screenWidth, screenHeight)
-    }
+    }*/
 
 }
