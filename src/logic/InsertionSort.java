@@ -4,7 +4,6 @@ import abstraction.Metodo;
 
 public class InsertionSort implements Metodo {
 
-    private int formula,contador;
     private  static InsertionSort instancia;
 
     private InsertionSort(){}
@@ -18,38 +17,34 @@ public class InsertionSort implements Metodo {
     }
 
     @Override
-    public void initSort(int N) {
+    public int calcularOEFormula(int N) {
+        return (9)*(N+2+(((N*N)+(3*N))/2)) + (9*(N))+(2);
+    }
+
+    @Override
+    public int calcularOEContador(int N) {
         int[] a = new int[N];
 
         for(int i = 0; i < N; i++){
             a[i] = N-i;
         }
 
-        contador = 3;
+        int contador = 2;
         int j = 0;
-        for (int i = 1; i < N; i++){
+        for (int i = 1; i < N; i++){ // 2 OE
             int aux = a[i]; // 2oe
             j = i - 1; // 2oe
             contador += 9;
             while ((j >= 0) && (aux < a[j])){ //4 oe
                 a[j + 1] = a[j]; //4 oe
-                j--; // 1 oe
+                j--; // 2 oe
                 contador += 9;
             }
+            contador++;
             a[j + 1] = aux;//3oe
         }
 
-        formula = (9)*(N+2+(((N*N)+(3*N))/2)) + (9*(N))+(2);
-    }
-
-    @Override
-    public int calcularOEFormula() {
-        return this.formula;
-    }
-
-    @Override
-    public int calcularOEContador() {
-        return this.contador;
+        return contador;
     }
 
     @Override

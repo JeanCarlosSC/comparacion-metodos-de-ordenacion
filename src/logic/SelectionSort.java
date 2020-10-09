@@ -4,7 +4,6 @@ import abstraction.Metodo;
 
 public class SelectionSort implements Metodo {
 
-    private int formula,contador;
     private static SelectionSort instancia;
 
     private SelectionSort(){}
@@ -18,46 +17,43 @@ public class SelectionSort implements Metodo {
     }
 
     @Override
-    public void initSort(int N){
+    public int calcularOEFormula(int N) {
+        return 6*(((N*N)/4)) + (15*(N/2)) + 3;
+    }
+
+    @Override
+    public int calcularOEContador(int N) {
         int[] a = new int[N];
+        int contador;
 
         for(int i = 0; i < N; i++){
             a[i] = N-i;
         }
-
         contador = 3;
-        for(int i = 0; i < N-1; i++){ // 11 OE
-            contador += 11;
+        for(int i = 0; i < N/2; i++){ // 3 OE
+            contador += 4;
             int minimo = i;// 1 OE
-            for(int j = i+1; j < N; j++){ // 2 OE
-
+            for(int j = i+1; j < N-i; j++){ // 2 OE
+                contador += 5;
                 if(a[j] < a[minimo]){ // 3 OE
                     minimo = j; // 1 OE
-                    contador += 6;
+                    contador += 1;
                 }
             }
+            contador += 4;
             if(i != minimo){ // 1 OE
                 int temp = a[i]; // 2 OE
                 a[i] = a[minimo]; // 3 OE
                 a[minimo] = temp; // 2 OE
+                contador += 7;
             }
         }
-        formula = 6*((N*N) - (((N-1)*N)/(2)) - N ) + (11*(N-1)) + 3;
-    }
-
-    @Override
-    public int calcularOEFormula() {
-        return this.formula;
-    }
-
-    @Override
-    public int calcularOEContador() {
-        return this.contador;
+        return contador;
     }
 
     @Override
     public String getFormula() {
-        return null;
+        return "<html><body><p>3N<sup>2</sup>/2  + 15N/2 + 3</p></body></html>";
     }
 
     @Override

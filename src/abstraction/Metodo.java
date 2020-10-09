@@ -2,11 +2,9 @@ package abstraction;
 
 public interface Metodo{
 
-    void initSort(int N);
+    int calcularOEFormula(int N);
 
-    int calcularOEFormula();
-
-    int calcularOEContador();
+    int calcularOEContador(int N);
 
     String getFormula();
 
