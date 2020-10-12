@@ -6,7 +6,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
-
+import java.util.ArrayList;
 import javax.swing.*;
 
 public class Grafica {
@@ -24,15 +24,15 @@ public class Grafica {
 
     }
 
-    public void agregarGrafica(String id,double[] x, double[] y){
+    public void agregarGrafica(String id,ArrayList<Double> x, ArrayList<Double> y){
         XYSeries a = new XYSeries(id);
-        for(int i = 0; i < x.length; i++){
-            a.add(x[i],y[i]);
+        for(int i = 0; i < x.size(); i++){
+            a.add(x.get(i),y.get(i));
         }
         this.datos.addSeries(a);
     }
 
-    public void crearGrafica(String id,double[] x, double[] y){
+    public void crearGrafica(String id,ArrayList<Double> x, ArrayList<Double> y){
         datos.removeAllSeries();
         agregarGrafica(id,x,y);
     }

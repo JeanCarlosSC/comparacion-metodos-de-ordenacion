@@ -9,6 +9,8 @@ class VistaPrincipal: JFrame() {
     private val screenWidth = 1300
     private val screenHeight = 700
     private val mainBar = MainBar(screenWidth, this)
+    private val footer = Footer(screenWidth);
+    private val grafica = Grafica("Comparacion Metodos Ordenamito","N","OE(N)");
 
     //aside
     private val btCalcular = JButton()
@@ -21,15 +23,8 @@ class VistaPrincipal: JFrame() {
         add(mainBar)
 
         crearAside()
-
-        //footer
-        val footer = Footer(screenWidth)
         add(footer)
-
-        //body
-        val body = JPanel()
-        body.setProperties(330, 53,  940, 400, semiDarkGrayBlue, semiDarkGray2Border)
-        add(body)
+        createBody();
 
         setProperties(screenWidth, screenHeight, darkGray)
     }
@@ -58,6 +53,29 @@ class VistaPrincipal: JFrame() {
         //boton calcular
         btCalcular.setProperties(50, 350, 170, 32, "Calcular")
         aside.add(btCalcular)
+
+    }
+
+    private fun createBody(){
+        val body = JPanel()
+        body.setProperties(330, 53,  940, 400, semiDarkGrayBlue, semiDarkGray2Border)
+        add(body)
+
+
+        for (metodo in footer.getMetodos()){
+            val x = ArrayList<Double>()
+            val y = ArrayList<Double>()
+
+            for(i in 0..100){
+                x.add(i.toDouble())
+                y.add(metodo.calcularOEFormula(i).toDouble())
+            }
+
+            grafica.agregarGrafica(metodo.formula,x,y)
+        }
+
+        body.add(grafica.grafica)
+
 
     }
 

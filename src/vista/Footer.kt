@@ -137,4 +137,8 @@ class Footer(screenWidth: Int) : JPanel() {
             pilaDeLabels[i*6 + 5].text = "         -" //lContadorMetodo3
         }
     }
+
+    fun getMetodos(): MutableList<Metodo> {
+        return metodos;
+    }
 }

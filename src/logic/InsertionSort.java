@@ -49,7 +49,7 @@ public class InsertionSort implements Metodo {
 
     @Override
     public String getFormula() {
-        return null;
+        return "<html><body><p></p></body><html>";
     }
 
     @Override
