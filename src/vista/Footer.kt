@@ -2,6 +2,9 @@ package vista
 
 import abstraction.Metodo
 import libraries.`JeanRAD-library`.*
+import logic.BubbleSort
+import logic.InsertionSort
+import logic.SelectionSort
 import javax.swing.JLabel
 import javax.swing.JPanel
 
@@ -73,10 +76,14 @@ class Footer(screenWidth: Int) : JPanel() {
     }
 
     private fun crearPila() {
+        metodos.add(BubbleSort.getInstance())
+        metodos.add(InsertionSort.getInstance())
+        metodos.add(SelectionSort.getInstance())
+
         //Falta añadir los metodos al arreglo
-        for(i in 0..3){//metodos.indices) {
+        for(i in 0..2){//metodos.indices) {
             val lNombre = JLabel()
-            lNombre.setProperties(110, 60+i*28, 130, 32,"Nombre del método", greenGray, fontText)
+            lNombre.setProperties(110, 60+i*28, 130, 32, "Nombre del método", greenGray, fontText)
             add(lNombre)
 
             val lFormulaMetodo1 = JLabel()
@@ -110,18 +117,18 @@ class Footer(screenWidth: Int) : JPanel() {
             add(lContadorMetodo3)
 
             val lFormulaMetodo = JLabel()
-            lFormulaMetodo.setProperties(1038, 60+i*28, 130, 32,"-text-", darkWhite, fontText)
+            lFormulaMetodo.setProperties(1038, 60+i*28, 130, 32,"${metodos[i].formula}", darkWhite, fontText)
             add(lFormulaMetodo)
 
             val lComplejidadMetodo = JLabel()
-            lComplejidadMetodo.setProperties(1164, 60+i*28, 130, 32,"-text-", darkWhite, fontText)
+            lComplejidadMetodo.setProperties(1196, 60+i*28, 130, 32,"${metodos[i].complejidad}", darkWhite, fontText)
             add(lComplejidadMetodo)
         }
 
     }
 
     fun actualizarPila() {
-        for(i in 0..3) {
+        for(i in 0..2) {
             pilaDeLabels[i*6 + 0].text = "         -" //lFormulaMetodo1
             pilaDeLabels[i*6 + 1].text = "         -" //lContadorMetodo1
             pilaDeLabels[i*6 + 2].text = "         -" //lFormulaMetodo2

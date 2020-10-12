@@ -1,7 +1,6 @@
 *.iml
 *.xml
 *.class
-*.jar
 *.kotlin_module
 *.MF
 
