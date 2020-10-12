@@ -83,11 +83,11 @@ class Footer(screenWidth: Int) : JPanel() {
         //Falta añadir los metodos al arreglo
         for(i in 0..2){//metodos.indices) {
             val lNombre = JLabel()
-            lNombre.setProperties(110, 60+i*28, 130, 32, "Nombre del método", greenGray, fontText)
+            lNombre.setProperties(110, 60+i*28, 130, 32, metodos[i].methodName, greenGray, fontText)
             add(lNombre)
 
             val lFormulaMetodo1 = JLabel()
-            lFormulaMetodo1.setProperties(282, 60+i*28, 100, 32,"-text-", darkWhite, fontText)
+            lFormulaMetodo1.setProperties(282, 60+i*28, 100, 32,"", darkWhite, fontText)
             pilaDeLabels.add(lFormulaMetodo1)
             add(lFormulaMetodo1)
 
@@ -129,12 +129,12 @@ class Footer(screenWidth: Int) : JPanel() {
 
     fun actualizarPila() {
         for(i in 0..2) {
-            pilaDeLabels[i*6 + 0].text = "         -" //lFormulaMetodo1
-            pilaDeLabels[i*6 + 1].text = "         -" //lContadorMetodo1
-            pilaDeLabels[i*6 + 2].text = "         -" //lFormulaMetodo2
-            pilaDeLabels[i*6 + 3].text = "         -" //lContadorMetodo2
-            pilaDeLabels[i*6 + 4].text = "         -" //lFormulaMetodo3
-            pilaDeLabels[i*6 + 5].text = "         -" //lContadorMetodo3
+            pilaDeLabels[i*6 + 0].text = metodos[i].calcularOEFormula(0).toString() //lFormulaMetodo1
+            pilaDeLabels[i*6 + 1].text = metodos[i].calcularOEContador(0).toString() //lContadorMetodo1
+            pilaDeLabels[i*6 + 2].text = metodos[i].calcularOEFormula(100).toString() //lFormulaMetodo2
+            pilaDeLabels[i*6 + 3].text = metodos[i].calcularOEContador(100).toString() //lContadorMetodo2
+            pilaDeLabels[i*6 + 4].text = metodos[i].calcularOEFormula(50).toString() //lFormulaMetodo3
+            pilaDeLabels[i*6 + 5].text = metodos[i].calcularOEContador(50).toString()//lContadorMetodo3
         }
     }
 

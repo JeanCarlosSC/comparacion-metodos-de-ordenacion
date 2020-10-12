@@ -54,7 +54,7 @@ public class InsertionSort implements Metodo {
 
     @Override
     public String getComplejidad() {
-        return null;
+        return "<html>O(N<sup>2</sup>)</html>";
     }
 
     @Override
