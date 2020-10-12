@@ -57,11 +57,8 @@ class VistaPrincipal: JFrame() {
     }
 
     private fun createBody(){
-        val body = JPanel()
+        val body = grafica.grafica
         body.setProperties(330, 53,  940, 400, semiDarkGrayBlue, semiDarkGray2Border)
-        add(body)
-
-
         for (metodo in footer.getMetodos()){
             val x = ArrayList<Double>()
             val y = ArrayList<Double>()
@@ -71,12 +68,13 @@ class VistaPrincipal: JFrame() {
                 y.add(metodo.calcularOEFormula(i).toDouble())
             }
 
-            grafica.agregarGrafica(metodo.formula,x,y)
+            grafica.agregarGrafica(metodo.methodName,x,y)
         }
 
         body.add(grafica.grafica)
-
-
+        add(body)
+        body.validate()
+        repaint()
     }
 
 }

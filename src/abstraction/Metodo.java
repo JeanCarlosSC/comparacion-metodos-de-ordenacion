@@ -10,4 +10,6 @@ public interface Metodo{
 
     String getComplejidad();
 
+    String getMethodName();
+
 }

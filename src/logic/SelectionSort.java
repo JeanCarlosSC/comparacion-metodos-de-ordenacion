@@ -60,4 +60,9 @@ public class SelectionSort implements Metodo {
     public String getComplejidad() {
         return "<html>O(N<sup>2</sup>)</html>";
     }
+
+    @Override
+    public String getMethodName() {
+        return "Selection Sort";
+    }
 }
