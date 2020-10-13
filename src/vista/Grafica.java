@@ -3,7 +3,10 @@ package vista;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.Plot;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
@@ -27,7 +30,10 @@ public class Grafica {
         this.datos = new XYSeriesCollection();
 
         this.graficador = ChartFactory.createXYLineChart(titulo,labelX,labelY,datos,PlotOrientation.VERTICAL,true,false,false);
-        this.graficador.setBackgroundPaint(new Color(40, 40, 40));
+        this.graficador.setBackgroundPaint(new Color(31, 31, 31));
+
+
+        
         this.graficador.getLegend().setBackgroundPaint(new Color(60, 63, 65));
         this.graficador.getPlot().setBackgroundPaint(new Color(101, 101, 104));
 
