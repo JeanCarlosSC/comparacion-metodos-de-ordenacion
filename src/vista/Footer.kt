@@ -31,7 +31,7 @@ class Footer(screenWidth: Int) : JPanel() {
 
         //primera columna
         val lOEMax = JLabel()
-        lOEMax.setProperties(312, 5, 120, 28, "OE en n mínimo", darkWhite, fontTextBold)
+        lOEMax.setProperties(312, 5, 140, 28, "OE en n mínimo", darkWhite, fontTextBold)
         add(lOEMax)
 
         val lFormula = JLabel()
@@ -44,7 +44,7 @@ class Footer(screenWidth: Int) : JPanel() {
 
         //segunda columna
         val lOEMin = JLabel()
-        lOEMin.setProperties(556, 5, 120, 28, "OE en n máximo", darkWhite, fontTextBold)
+        lOEMin.setProperties(556, 5, 140, 28, "OE en n máximo", darkWhite, fontTextBold)
         add(lOEMin)
 
         val lFormula1 = JLabel()
@@ -57,7 +57,7 @@ class Footer(screenWidth: Int) : JPanel() {
 
         //tercera columna
         val lOEN = JLabel()
-        lOEN.setProperties(800, 5, 100, 28, "OE en n =", darkWhite, fontTextBold)
+        lOEN.setProperties(800, 5, 120, 28, "OE en n =", darkWhite, fontTextBold)
         add(lOEN)
 
         nBox.setProperties(880, 7, 90, 28, true, false, "200")
