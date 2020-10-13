@@ -8,16 +8,18 @@ import logic.RadixSort
 import logic.SelectionSort
 import javax.swing.JLabel
 import javax.swing.JPanel
+import javax.swing.JTextArea
 
 class Footer(screenWidth: Int) : JPanel() {
 
     private val metodos = mutableListOf<Metodo>()
     private val pilaDeLabels = mutableListOf<JLabel>()
+    private val nBox = JTextArea()
 
     init {
         crearEtiquetas()
         crearPila()
-        actualizarPila()
+        actualizarPila(0, 100, 200)
 
         setProperties(7, 486, screenWidth - 22, 200, semiDarkGrayBlue, semiDarkGray2Border)
     }
@@ -29,7 +31,7 @@ class Footer(screenWidth: Int) : JPanel() {
 
         //primera columna
         val lOEMax = JLabel()
-        lOEMax.setProperties(312, 5, 120, 28, "OE en n máximo", darkWhite, fontTextBold)
+        lOEMax.setProperties(312, 5, 120, 28, "OE en n mínimo", darkWhite, fontTextBold)
         add(lOEMax)
 
         val lFormula = JLabel()
@@ -42,7 +44,7 @@ class Footer(screenWidth: Int) : JPanel() {
 
         //segunda columna
         val lOEMin = JLabel()
-        lOEMin.setProperties(556, 5, 120, 28, "OE en n mínimo", darkWhite, fontTextBold)
+        lOEMin.setProperties(556, 5, 120, 28, "OE en n máximo", darkWhite, fontTextBold)
         add(lOEMin)
 
         val lFormula1 = JLabel()
@@ -57,6 +59,9 @@ class Footer(screenWidth: Int) : JPanel() {
         val lOEN = JLabel()
         lOEN.setProperties(800, 5, 100, 28, "OE en n =", darkWhite, fontTextBold)
         add(lOEN)
+
+        nBox.setProperties(880, 7, 90, 28, true, false, "200")
+        add(nBox)
 
         val lFormula2 = JLabel()
         lFormula2.setProperties(766, 35, 100, 28, "por fórmula", blueGray, fontText)
@@ -119,28 +124,32 @@ class Footer(screenWidth: Int) : JPanel() {
             add(lContadorMetodo3)
 
             val lFormulaMetodo = JLabel()
-            lFormulaMetodo.setProperties(1018, 60+i*28, 150, 32,"${metodos[i].formula}", darkWhite, fontText)
+            lFormulaMetodo.setProperties(1018, 60+i*28, 150, 32, metodos[i].formula, darkWhite, fontText)
             add(lFormulaMetodo)
 
             val lComplejidadMetodo = JLabel()
-            lComplejidadMetodo.setProperties(1196, 60+i*28, 130, 32,"${metodos[i].complejidad}", darkWhite, fontText)
+            lComplejidadMetodo.setProperties(1196, 60+i*28, 130, 32, metodos[i].complejidad, darkWhite, fontText)
             add(lComplejidadMetodo)
         }
 
     }
 
-    fun actualizarPila() {
+    fun actualizarPila(nMin: Int, nMax: Int, n: Int) {
         for(i in 0..3) {
-            pilaDeLabels[i*6 + 0].text = metodos[i].calcularOEFormula(0).toString() //lFormulaMetodo1
-            pilaDeLabels[i*6 + 1].text = metodos[i].calcularOEContador(0).toString() //lContadorMetodo1
-            pilaDeLabels[i*6 + 2].text = metodos[i].calcularOEFormula(100).toString() //lFormulaMetodo2
-            pilaDeLabels[i*6 + 3].text = metodos[i].calcularOEContador(100).toString() //lContadorMetodo2
-            pilaDeLabels[i*6 + 4].text = metodos[i].calcularOEFormula(50).toString() //lFormulaMetodo3
-            pilaDeLabels[i*6 + 5].text = metodos[i].calcularOEContador(50).toString() //lContadorMetodo3
+            pilaDeLabels[i*6 + 0].text = metodos[i].calcularOEFormula(nMin).toString() //lFormulaMetodo1
+            pilaDeLabels[i*6 + 1].text = metodos[i].calcularOEContador(nMin).toString() //lContadorMetodo1
+            pilaDeLabels[i*6 + 2].text = metodos[i].calcularOEFormula(nMax).toString() //lFormulaMetodo2
+            pilaDeLabels[i*6 + 3].text = metodos[i].calcularOEContador(nMax).toString() //lContadorMetodo2
+            pilaDeLabels[i*6 + 4].text = metodos[i].calcularOEFormula(n).toString() //lFormulaMetodo3
+            pilaDeLabels[i*6 + 5].text = metodos[i].calcularOEContador(n).toString() //lContadorMetodo3
         }
     }
 
     fun getMetodos(): MutableList<Metodo> {
-        return metodos;
+        return metodos
+    }
+
+    fun calcular(nMax: Int, nMin: Int) {
+        actualizarPila(nMax, nMin, nBox.text.toInt())
     }
 }
