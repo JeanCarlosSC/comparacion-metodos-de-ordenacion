@@ -73,7 +73,7 @@ class Footer(screenWidth: Int) : JPanel() {
 
         //últimas columnas
         val lFormula3 = JLabel()
-        lFormula3.setProperties(1018, 35, 100, 28, "Fórmula", blueGray, fontText)
+        lFormula3.setProperties(1008, 35, 100, 28, "Fórmula", blueGray, fontText)
         add(lFormula3)
 
         val lComplejidad = JLabel()
@@ -124,7 +124,7 @@ class Footer(screenWidth: Int) : JPanel() {
             add(lContadorMetodo3)
 
             val lFormulaMetodo = JLabel()
-            lFormulaMetodo.setProperties(1018, 60+i*28, 150, 32, metodos[i].formula, darkWhite, fontText)
+            lFormulaMetodo.setProperties(1008, 60+i*28, 160, 32, metodos[i].formula, darkWhite, fontText)
             add(lFormulaMetodo)
 
             val lComplejidadMetodo = JLabel()

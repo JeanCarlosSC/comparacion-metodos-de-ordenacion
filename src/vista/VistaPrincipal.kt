@@ -40,7 +40,7 @@ class VistaPrincipal: JFrame() {
 
         //primera linea
         val label1 = JLabel()
-        label1.setProperties(60, 64, 300, 32, "Desde n = ", darkWhite, fontText)
+        label1.setProperties(50, 64, 300, 32, "Desde n = ", darkWhite, fontText)
         aside.add(label1)
 
         nBoxMin.setProperties(135, 66, 100, 28, true, false, "0")
@@ -48,7 +48,7 @@ class VistaPrincipal: JFrame() {
 
         //segunda linea
         val label2 = JLabel()
-        label2.setProperties(60, 128, 300, 32, "Hasta  n = ", darkWhite, fontText)
+        label2.setProperties(50, 128, 300, 32, "Hasta  n = ", darkWhite, fontText)
         aside.add(label2)
 
         nBoxMax.setProperties(135, 130, 100, 28, true, false, "100")
