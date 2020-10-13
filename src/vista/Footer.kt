@@ -4,6 +4,7 @@ import abstraction.Metodo
 import libraries.`JeanRAD-library`.*
 import logic.BubbleSort
 import logic.InsertionSort
+import logic.RadixSort
 import logic.SelectionSort
 import javax.swing.JLabel
 import javax.swing.JPanel
@@ -79,9 +80,10 @@ class Footer(screenWidth: Int) : JPanel() {
         metodos.add(BubbleSort.getInstance())
         metodos.add(InsertionSort.getInstance())
         metodos.add(SelectionSort.getInstance())
+        metodos.add(RadixSort.getInstance())
 
         //Falta añadir los metodos al arreglo
-        for(i in 0..2){//metodos.indices) {
+        for(i in 0..3){//metodos.indices) {
             val lNombre = JLabel()
             lNombre.setProperties(90, 60+i*28, 130, 32, metodos[i].methodName, greenGray, fontText)
             add(lNombre)
@@ -128,7 +130,7 @@ class Footer(screenWidth: Int) : JPanel() {
     }
 
     fun actualizarPila() {
-        for(i in 0..2) {
+        for(i in 0..3) {
             pilaDeLabels[i*6 + 0].text = metodos[i].calcularOEFormula(0).toString() //lFormulaMetodo1
             pilaDeLabels[i*6 + 1].text = metodos[i].calcularOEContador(0).toString() //lContadorMetodo1
             pilaDeLabels[i*6 + 2].text = metodos[i].calcularOEFormula(100).toString() //lFormulaMetodo2

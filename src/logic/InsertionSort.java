@@ -49,12 +49,13 @@ public class InsertionSort implements Metodo {
 
     @Override
     public String getFormula() {
-        return "<html><body><p>9(n*n-n)/2 + 10*n  - 8</p></body><html>";
+        return "<html><body><p>9(N<sup>2</sup>-N)/2 + 10N - 8 <p></body></html>";
     }
 
     @Override
     public String getComplejidad() {
         return "<html>O(N<sup>2</sup>)</html>";
+
     }
 
     @Override
