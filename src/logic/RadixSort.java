@@ -2,6 +2,7 @@ package logic;
 
 import abstraction.Metodo;
 
+
 public class RadixSort implements  Metodo {
 
     private static RadixSort instancia;
@@ -15,6 +16,21 @@ public class RadixSort implements  Metodo {
 
         return  instancia;
     }
+
+    public int getMax(int arr[], int n)
+    {
+        int maximo = arr[0];
+        for (int i = 1; i < n; i++)
+            if (arr[i] > maximo)
+                maximo = arr[i];
+        return maximo;
+    }
+
+    public void countSort(int arr[], int n, int exp)
+    {
+
+    }
+
 
     @Override
     public int calcularOEFormula(int N) {
@@ -32,39 +48,29 @@ public class RadixSort implements  Metodo {
             System.out.print(element+", ");
         }
         System.out.println("\n");
-        //Implementacion
-        int[][] matriz = new int[N][2];
-        int[] q = new int[0x100];
-        int i,j,k,l,f = 0;
-        for(k = 0 ; k<4; k++){
-            for(i=0;i<(matriz.length-1);i++)
-                matriz[i][1] = i+1;
-            matriz[i][1] = -1;
-            for(i=0;i<q.length;i++)
-                q[i] = -1;
-            for(f=i=0;i<a.length;i++){
-                j = ((0xFF<<(k<<3))&a[i])>>(k<<3);
-                if(q[j] == -1)
-                    l = q[j] = f;
-                else{
-                    l = q[j];
-                    while(matriz[l][1] != -1)
-                        l = matriz[l][1];
-                    matriz[l][1] = f;
-                    l = matriz[l][1];
-                }
-                f = matriz[f][1];
-                matriz[l][0] = a[i];
-                matriz[l][1] = -1;
+        int m = getMax(a, N);
+
+        for (int exp = 1; m / exp > 0; exp *= 10) {
+            int output[] = new int[N];
+            int i;
+            int count[] = new int[10];
+
+            for (i = 0; i < N; i++)
+                count[(a[i] / exp) % 10]++;
+
+            for (i = 1; i < 10; i++)
+                count[i] += count[i - 1];
+
+
+            for (i = N - 1; i >= 0; i--) {
+                output[count[(a[i] / exp) % 10] - 1] = a[i];
+                count[(a[i] / exp) % 10]--;
             }
-            for(l=q[i=j=0];i<0x100;i++)
-                for(l=q[i];l!=-1;l=matriz[l][1])
-                    a[j++] = matriz[l][0];
+
+            for (i = 0; i < N; i++)
+                a[i] = output[i];
         }
         //Fin de la implementacion
-        for(int element:a){
-            System.out.print(element+", ");
-        }
 
         return contador;
     }
