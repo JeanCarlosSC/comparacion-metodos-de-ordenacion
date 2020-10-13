@@ -6,8 +6,13 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
+
+import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
+
+import static java.awt.Color.cyan;
+import static java.awt.Color.darkGray;
 
 public class Grafica {
 
@@ -20,7 +25,16 @@ public class Grafica {
         this.labelX = labelX;
         this.labelY = labelY;
         this.datos = new XYSeriesCollection();
+
         this.graficador = ChartFactory.createXYLineChart(titulo,labelX,labelY,datos,PlotOrientation.VERTICAL,true,false,false);
+        this.graficador.setBackgroundPaint(new Color(40, 40, 40));
+        this.graficador.getLegend().setBackgroundPaint(new Color(60, 63, 65));
+        this.graficador.getPlot().setBackgroundPaint(new Color(101, 101, 104));
+
+        this.graficador.getTitle().setPaint(new Color(187,187,187));
+        this.graficador.getLegend().setItemPaint(new Color(187,187,187));
+
+        this.graficador.getXYPlot().setRangeGridlinePaint(new Color(0, 0, 0));
 
     }
 

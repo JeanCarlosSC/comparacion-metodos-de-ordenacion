@@ -2,6 +2,7 @@ package vista
 
 import MainBar
 import libraries.`JeanRAD-library`.*
+import org.jfree.chart.ChartFactory
 import javax.swing.*
 
 class VistaPrincipal: JFrame() {
@@ -10,7 +11,7 @@ class VistaPrincipal: JFrame() {
     private val screenHeight = 700
     private val mainBar = MainBar(screenWidth, this)
     private val footer = Footer(screenWidth);
-    private val grafica = Grafica("Comparacion Metodos Ordenamito","N","OE(N)");
+    private val grafica = Grafica("Comparación Métodos de Ordenamiento","N","OE(N)");
 
     //aside
     private val btCalcular = JButton()
@@ -44,7 +45,7 @@ class VistaPrincipal: JFrame() {
 
         //segunda linea
         val label2 = JLabel()
-        label2.setProperties(60, 128, 300, 32, "Hasta n = ", darkWhite, fontText)
+        label2.setProperties(60, 128, 300, 32, "Hasta  n = ", darkWhite, fontText)
         aside.add(label2)
 
         nBoxMax.setProperties(135, 130, 100, 28, true, false)
@@ -58,7 +59,7 @@ class VistaPrincipal: JFrame() {
 
     private fun createBody(){
         val body = grafica.grafica
-        body.setProperties(330, 53,  940, 400, semiDarkGrayBlue, semiDarkGray2Border)
+        body.setProperties(330, 53,  940, 400, darkWhite, semiDarkGray2Border)
         for (metodo in footer.getMetodos()){
             val x = ArrayList<Double>()
             val y = ArrayList<Double>()
